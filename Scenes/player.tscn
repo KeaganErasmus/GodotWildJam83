@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://chywuea4570h3"]
+
+[ext_resource type="Script" uid="uid://dht88o0qci7jx" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://byumkbgrtwlw6" path="res://assets/blob.png" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://dw4hso8mw33nn" path="res://assets/Sounds/blob_move.mp3" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://c0csmaf0vuk6k" path="res://assets/blob_light_radius.png" id="4_vgqql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3smsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(126, 127)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_cvnsp")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+speed_scale = 0.85
+emission_shape = 2
+emission_sphere_radius = 72.11
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 161.61
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+scale_amount_min = 11.1
+scale_amount_max = 11.1
+color = Color(0.101961, 0.588235, 0.0431373, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3smsa")
+animation = &"moving"
+frame_progress = 0.888693
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6t5aa")
+volume_db = -5.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2, 5)
+scale = Vector2(20.8438, 15.7813)
+energy = 0.5
+texture = ExtResource("4_vgqql")
