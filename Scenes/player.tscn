@@ -61,7 +61,7 @@ color = Color(0.101961, 0.588235, 0.0431373, 1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3smsa")
 animation = &"moving"
-frame_progress = 0.888693
+frame_progress = 0.40521
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cvnsp")
@@ -77,3 +77,47 @@ position = Vector2(-2, 5)
 scale = Vector2(20.8438, 15.7813)
 energy = 0.5
 texture = ExtResource("4_vgqql")
+
+[node name="DeathUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -170.0
+offset_right = -18.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeathText" type="RichTextLabel" parent="DeathUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "The fight is over "
+fit_content = true
+
+[node name="ExitButton" type="Button" parent="DeathUI"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 51.0
+offset_right = 119.0
+offset_bottom = 82.0
+scale = Vector2(2.39778, 1.64014)
+text = "Exit
+"
+
+[node name="RetryButton" type="Button" parent="DeathUI"]
+layout_mode = 0
+offset_left = -136.0
+offset_top = 51.0
+offset_right = -80.0
+offset_bottom = 82.0
+scale = Vector2(1.60739, 1.60417)
+text = "Foood"
+
+[node name="EatSound" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 1.6
+
+[connection signal="pressed" from="DeathUI/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="DeathUI/RetryButton" to="." method="_on_retry_button_pressed"]

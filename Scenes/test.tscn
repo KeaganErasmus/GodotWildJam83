@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://djji27wnn7dcs"]
+[gd_scene load_steps=7 format=4 uid="uid://djji27wnn7dcs"]
 
 [ext_resource type="PackedScene" uid="uid://chywuea4570h3" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="Texture2D" uid="uid://ddv0ubbjgnajo" path="res://assets/wall.png" id="1_ys1qc"]
 [ext_resource type="Texture2D" uid="uid://d3w00ttxv57dd" path="res://assets/tile_map.png" id="2_8od7v"]
 [ext_resource type="PackedScene" uid="uid://pbofd2kf1j7s" path="res://Scenes/food.tscn" id="3_qc4db"]
-[ext_resource type="PackedScene" uid="uid://ctefdpls8jp7v" path="res://Scenes/scientist.tscn" id="4_ys1qc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qc4db"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys1qc"]
 texture = ExtResource("2_8od7v")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -34,7 +33,7 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_qc4db"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_qc4db")
+sources/1 = SubResource("TileSetAtlasSource_ys1qc")
 
 [node name="Test" type="Node2D"]
 
@@ -44,6 +43,7 @@ scale = Vector2(65.0938, 38.0703)
 texture = ExtResource("1_ys1qc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -51,17 +51,16 @@ tile_map_data = PackedByteArray("AAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAEAAQAAAAA
 tile_set = SubResource("TileSet_qc4db")
 
 [node name="Player" parent="." instance=ExtResource("1_lc1oi")]
-position = Vector2(549, 301)
+position = Vector2(569, 291)
 
 [node name="Food" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(525, 985)
-scale = Vector2(-0.368749, 0.480253)
+position = Vector2(273, 182)
 
 [node name="Food2" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(509, 636)
-scale = Vector2(-0.368749, 0.480253)
+position = Vector2(540, 540)
 
-[node name="Scientist" parent="." instance=ExtResource("4_ys1qc")]
-position = Vector2(501, 786)
-rotation = 5.78261
-scale = Vector2(0.5, 0.5)
+[node name="Food3" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(851, 248)
+
+[node name="Food4" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(279, 371)

@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=4 uid="uid://bkgrosl6b5tgb"]
+
+[ext_resource type="Texture2D" uid="uid://ddv0ubbjgnajo" path="res://assets/wall.png" id="1_xfk5q"]
+[ext_resource type="Texture2D" uid="uid://d3w00ttxv57dd" path="res://assets/tile_map.png" id="2_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://chywuea4570h3" path="res://Scenes/player.tscn" id="3_6444e"]
+[ext_resource type="PackedScene" uid="uid://cmualx0gqjds8" path="res://Scenes/door.tscn" id="4_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://ctefdpls8jp7v" path="res://Scenes/security_camera.tscn" id="5_6444e"]
+[ext_resource type="PackedScene" uid="uid://maw1v4loon1l" path="res://Scenes/level_2.tscn" id="5_lsmp6"]
+[ext_resource type="PackedScene" uid="uid://pbofd2kf1j7s" path="res://Scenes/food.tscn" id="7_lsmp6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evi0p"]
+texture = ExtResource("2_7p6j4")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lsmp6"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_evi0p")
+
+[node name="Level1" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2343, 1709)
+scale = Vector2(65.0938, 38.0703)
+texture = ExtResource("1_xfk5q")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAQAAQAAAAEAAAAIAAQAAQADAAEAAAAIAAMAAQADAAAAAAAIAAIAAQADAAAAAAAIAAEAAQADAAAAAAAIAAAAAQACAAIAAAABAAQAAQABAAEAAAACAAQAAQACAAMAAAAGAAQAAQABAAEAAAAHAAQAAQABAAEAAAAAAAAAAQABAAIAAAACAAAAAQACAAAAAAADAAAAAQACAAAAAAAEAAAAAQACAAAAAAAFAAAAAQACAAAAAAAGAAAAAQACAAAAAAAHAAAAAQACAAAAAAABAAAAAQACAAAAAAAFAAQAAQADAAMAAAAFAAUAAQADAAAAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAACAAgAAQAAAAAAAAACAAkAAQAAAAAAAAAFAAYAAQADAAAAAAAFAAcAAQADAAAAAAAFAAgAAQADAAAAAAAFAAkAAQADAAAAAAABAAEAAQAAAAMAAAACAAIAAQAAAAMAAAADAAIAAQAAAAMAAAADAAMAAQAAAAMAAAAEAAMAAQAAAAMAAAACAAEAAQAAAAMAAAADAAEAAQAAAAMAAAAEAAEAAQAAAAMAAAAFAAEAAQAAAAMAAAAGAAEAAQAAAAMAAAAHAAEAAQAAAAMAAAAHAAIAAQAAAAMAAAAHAAMAAQAAAAMAAAAGAAMAAQAAAAMAAAAFAAMAAQAAAAMAAAAFAAIAAQAAAAMAAAAGAAIAAQAAAAMAAAAEAAIAAQAAAAMAAAABAAIAAQAAAAMAAAABAAMAAQAAAAMAAAACAAMAAQAAAAMAAAAEAAQAAQAAAAMAAAADAAQAAQAAAAMAAAADAAUAAQAAAAMAAAADAAYAAQAAAAMAAAADAAcAAQAAAAMAAAADAAgAAQAAAAMAAAADAAkAAQAAAAMAAAAEAAkAAQAAAAMAAAAEAAgAAQAAAAMAAAAEAAcAAQAAAAMAAAAEAAYAAQAAAAMAAAAEAAUAAQAAAAMAAAACAAoAAQAAAAEAAAAFAAoAAQADAAEAAAADAAoAAQABAAEAAAAEAAoAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_lsmp6")
+
+[node name="Player" parent="." instance=ExtResource("3_6444e")]
+position = Vector2(511, 1209)
+
+[node name="Door" parent="." instance=ExtResource("4_7p6j4")]
+position = Vector2(537, 190)
+next_level = ExtResource("5_lsmp6")
+
+[node name="SecurityCamera" parent="." instance=ExtResource("5_6444e")]
+position = Vector2(224, 219)
+rotation = 0.901452
+
+[node name="Food" parent="." instance=ExtResource("7_lsmp6")]
+position = Vector2(508, 790)
+scale = Vector2(0.464399, 0.55232)
+
+[node name="Food2" parent="." instance=ExtResource("7_lsmp6")]
+position = Vector2(819, 339)
+scale = Vector2(0.464399, 0.55232)

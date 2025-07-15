@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="GodotWildJam83"
-run/main_scene="uid://djji27wnn7dcs"
+run/main_scene="uid://cmn2xf1bsk1wt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-mouse_cursor/custom_image="uid://baskoq224yi8v"
+mouse_cursor/custom_image="uid://bi6tdrtw5gbr8"
 
 [input]
 

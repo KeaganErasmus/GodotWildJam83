@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=4 uid="uid://maw1v4loon1l"]
+
+[ext_resource type="Texture2D" uid="uid://ddv0ubbjgnajo" path="res://assets/wall.png" id="1_12fag"]
+[ext_resource type="Texture2D" uid="uid://d3w00ttxv57dd" path="res://assets/tile_map.png" id="2_1q6tm"]
+[ext_resource type="PackedScene" uid="uid://chywuea4570h3" path="res://Scenes/player.tscn" id="3_v36qu"]
+[ext_resource type="PackedScene" uid="uid://ctefdpls8jp7v" path="res://Scenes/security_camera.tscn" id="4_1q6tm"]
+[ext_resource type="PackedScene" uid="uid://pbofd2kf1j7s" path="res://Scenes/food.tscn" id="5_v36qu"]
+[ext_resource type="PackedScene" uid="uid://cmualx0gqjds8" path="res://Scenes/door.tscn" id="6_cggpd"]
+[ext_resource type="PackedScene" uid="uid://c0mefxbvih70f" path="res://Scenes/level_3.tscn" id="7_055b2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cggpd"]
+texture = ExtResource("2_1q6tm")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:3/0 = 0
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_055b2"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_cggpd")
+
+[node name="Level2" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2343, 1709)
+scale = Vector2(65.0938, 38.0703)
+texture = ExtResource("1_12fag")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAgAAQAAAAMAAAAEAAgAAQAAAAMAAAADAAkAAQAAAAMAAAAEAAkAAQAAAAMAAAAFAAkAAQAAAAMAAAAGAAkAAQAAAAMAAAAHAAkAAQAAAAMAAAAIAAkAAQAAAAMAAAAJAAkAAQAAAAMAAAAJAAoAAQAAAAMAAAAJAAsAAQAAAAMAAAAJAAwAAQAAAAMAAAAKAAwAAQAAAAMAAAALAAwAAQAAAAMAAAAMAAwAAQAAAAMAAAAMAAsAAQAAAAMAAAAMAAoAAQAAAAMAAAAMAAkAAQAAAAMAAAALAAkAAQAAAAMAAAAKAAkAAQAAAAMAAAAKAAoAAQAAAAMAAAAKAAsAAQAAAAMAAAALAAsAAQAAAAMAAAALAAoAAQAAAAMAAAADAAcAAQAAAAMAAAADAAYAAQAAAAMAAAADAAUAAQAAAAMAAAAEAAUAAQAAAAMAAAAEAAYAAQAAAAMAAAAEAAcAAQAAAAMAAAAFAAgAAQAAAAMAAAAJAAgAAQAAAAMAAAAIAAgAAQAAAAMAAAAHAAgAAQAAAAMAAAAGAAgAAQAAAAMAAAAIAAsAAQAAAAMAAAAHAAsAAQAAAAMAAAAIAAwAAQAAAAMAAAAHAAwAAQAAAAMAAAAJAA0AAQAAAAMAAAAKAA0AAQAAAAMAAAALAA0AAQAAAAMAAAAMAA0AAQAAAAMAAAAGAAsAAQAAAAMAAAAGAAwAAQAAAAMAAAANAAkAAQAAAAMAAAANAAoAAQAAAAMAAAANAAsAAQAAAAMAAAANAAwAAQAAAAMAAAANAA0AAQAAAAMAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAACAAgAAQAAAAAAAAACAAkAAQAAAAAAAAADAAoAAQABAAEAAAAEAAoAAQABAAEAAAAFAAoAAQABAAEAAAAGAAoAAQABAAEAAAAHAAoAAQABAAEAAAAIAAoAAQABAAEAAAAGAAcAAQACAAAAAAAHAAcAAQACAAAAAAAIAAcAAQACAAAAAAAJAAcAAQACAAAAAAAFAAYAAQADAAAAAAAFAAUAAQADAAAAAAAFAAQAAQACAAIAAAACAAQAAQABAAIAAAADAAQAAQACAAAAAAAEAAQAAQACAAAAAAAFAAcAAQADAAIAAAAKAAgAAQADAAIAAAAKAAcAAQADAAMAAAALAAgAAQACAAAAAAAMAAgAAQACAAAAAAANAAgAAQACAAAAAAAOAAkAAQADAAAAAAAOAAoAAQADAAAAAAAOAAsAAQADAAAAAAAOAAwAAQADAAAAAAAOAA0AAQADAAAAAAAGAA0AAQABAAEAAAAHAA0AAQABAAEAAAAIAA0AAQACAAMAAAAFAA0AAQAAAAEAAAAFAAwAAQAAAAAAAAAFAAsAAQAAAAAAAAAJAA4AAQABAAEAAAAKAA4AAQABAAEAAAALAA4AAQABAAEAAAAMAA4AAQABAAEAAAANAA4AAQABAAEAAAAOAA4AAQADAAEAAAAIAA4AAQAAAAEAAAA=")
+tile_set = SubResource("TileSet_055b2")
+
+[node name="Player" parent="." instance=ExtResource("3_v36qu")]
+position = Vector2(503, 746)
+
+[node name="SecurityCamera" parent="." instance=ExtResource("4_1q6tm")]
+position = Vector2(1512, 1527)
+rotation = -2.35619
+
+[node name="Food" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(1269, 1331)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Food2" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(1293, 1693)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Food3" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(1730, 1213)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Food4" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(1684, 1543)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Food5" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(1041, 1542)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Food6" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(414, 1245)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Food7" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(1204, 1084)
+scale = Vector2(0.493512, 0.519411)
+
+[node name="Door" parent="." instance=ExtResource("6_cggpd")]
+position = Vector2(825, 1539)
+rotation = -1.5708
+next_level = ExtResource("7_055b2")
