@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="GodotWildJam83"
-run/main_scene="uid://cmn2xf1bsk1wt"
+run/main_scene="uid://cfb4m111wsddu"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://d3kpy4hj11pmv"
+config/icon="uid://d178gk4hh65ud"
+boot_splash/minimum_display_time=500
+
+[autoload]
+
+MusicPlayer="*res://Scenes/music_player.tscn"
 
 [display]
 

@@ -10,7 +10,7 @@ var rng := RandomNumberGenerator.new()
 
 @onready var death_ui : Control = $DeathUI
 
-var max_hunger_amount: int = 200
+var max_hunger_amount: int = 300
 var min_hunger_amount: int = 0
 var hunger_amount: int = max_hunger_amount
 
@@ -41,7 +41,10 @@ func _ready():
 	Input.set_custom_mouse_cursor(open_hand)
 	$AnimatedSprite2D.scale = player_scale
 	$Collision.scale = player_scale
-	hunger_amount = max_hunger_amount
+	hunger_amount = max_hunger_amount + 10
+	distance_traveled = 0
+	velocity = Vector2.ZERO
+	print("hunger amount: ", hunger_amount)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not is_dead:
@@ -78,6 +81,7 @@ func _process(_delta: float) -> void:
 		distance_traveled += dist
 		if distance_traveled >= distance_per_hunger_loss:
 			lose_hunger(10)
+			print(hunger_amount)
 			shrink()
 			distance_traveled = 0
 

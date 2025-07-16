@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfb4m111wsddu"]
+[gd_scene load_steps=5 format=3 uid="uid://cfb4m111wsddu"]
 
 [ext_resource type="Texture2D" uid="uid://c0csmaf0vuk6k" path="res://assets/blob_light_radius.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://d2orvp6wwm7u6" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://ddv0ubbjgnajo" path="res://assets/wall.png" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://d178gk4hh65ud" path="res://icon.png" id="5_n45e2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,7 +17,6 @@ script = ExtResource("1_48xlc")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 position = Vector2(6.10352e-05, 3.05176e-05)
-scale = Vector2(1, 1)
 color = Color(0, 0, 0, 0.607843)
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -60,6 +60,10 @@ text = "Exit
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(7.12876, -5.85851)
 texture = ExtResource("1_28flt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(118, 612)
+texture = ExtResource("5_n45e2")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

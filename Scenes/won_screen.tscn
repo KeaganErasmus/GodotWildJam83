@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://npre3o2vhuew"]
+
+[ext_resource type="Texture2D" uid="uid://ddv0ubbjgnajo" path="res://assets/wall.png" id="1_4tbpi"]
+[ext_resource type="Texture2D" uid="uid://c0csmaf0vuk6k" path="res://assets/blob_light_radius.png" id="2_nnpgn"]
+[ext_resource type="Texture2D" uid="uid://d178gk4hh65ud" path="res://icon.png" id="3_j12at"]
+
+[node name="WonScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2(6.10352e-05, 3.05176e-05)
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(550, 378)
+rotation = 3.14159
+scale = Vector2(10.029, -6.98963)
+texture = ExtResource("1_4tbpi")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(7.12876, -5.85851)
+texture = ExtResource("2_nnpgn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 391)
+texture = ExtResource("3_j12at")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 359.0
+offset_top = 114.0
+offset_right = -396.0
+offset_bottom = -337.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thanks for playing my submission to the GodoWildJam83,
+
+I hope you enjoyed your playtime"
